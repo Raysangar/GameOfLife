@@ -41,5 +41,10 @@ namespace GameOfLife
 		{
 			Assert::AreEqual(State::DEAD, getNextState(State::DEAD, 2)); 
 		}
+
+		TEST_METHOD(DeadCellRebornsWith3AliveNeighbors)
+		{
+			Assert::AreEqual(State::ALIVE, getNextState(State::DEAD, 3)); 
+		}
 	};
 }
