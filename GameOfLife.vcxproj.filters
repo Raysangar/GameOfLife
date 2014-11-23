@@ -38,5 +38,8 @@
     <ClCompile Include="RulesChecker.cpp">
       <Filter>Archivos de código fuente</Filter>
     </ClCompile>
+    <ClCompile Include="AliveNeighborsCountTests.cpp">
+      <Filter>Archivos de código fuente</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
