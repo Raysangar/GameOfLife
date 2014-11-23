@@ -4,16 +4,15 @@
 
 #include "State.h"
 #include <list>
+class CellImplementation;
 
 class Cell
 {
 private:
-	State state;
-	std::list<Cell> neighbors;
+	CellImplementation* cellImpl;
 
-	std::list<State> getNeighborsState();
-	int getAliveNeighbors(std::list<State> neighborsStateList);
 public:
+	Cell();
 	Cell(State state, std::list<Cell> neighbors);
 	virtual ~Cell();
 	State getState() const;
