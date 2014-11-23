@@ -8,18 +8,20 @@ namespace GameOfLife
 {	
 	TEST_CLASS(RulesTests)
 	{
+	private:
+		State getNextState(int aliveNeighbors) {
+			return State::DEAD;
+		}
 	public:
 		
 		TEST_METHOD(AliveCellDiesWithMoreThan3AliveNeighbors)
 		{
-			State state = State::DEAD; 
-			Assert::AreEqual(State::DEAD, state); 
+			Assert::AreEqual(State::DEAD, getNextState(4)); 
 		}
 
 		TEST_METHOD(AliveCellDiesWithLessThan2AliveNeighbors)
 		{
-			State state = State::DEAD; 
-			Assert::AreEqual(State::DEAD, state); 
+			Assert::AreEqual(State::DEAD, getNextState(1)); 
 		}
 	};
 }
