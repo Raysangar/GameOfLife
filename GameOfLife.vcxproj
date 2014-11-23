@@ -82,6 +82,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Cell.h" />
     <ClInclude Include="RulesChecker.h" />
     <ClInclude Include="State.h" />
     <ClInclude Include="stdafx.h" />
@@ -89,6 +90,8 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AliveNeighborsCountTests.cpp" />
+    <ClCompile Include="Cell.cpp" />
+    <ClCompile Include="CellTests.cpp" />
     <ClCompile Include="NeighborsStateGetterTests.cpp" />
     <ClCompile Include="RulesChecker.cpp" />
     <ClCompile Include="stdafx.cpp">

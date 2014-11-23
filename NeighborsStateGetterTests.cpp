@@ -1,19 +1,15 @@
 #include "stdafx.h"
 #include "CppUnitTest.h"
-#include <list>
-#include "State.h"
+#include "Cell.h"
 
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
 
 namespace GameOfLife
 {	
-	class Cell
+	TEST_CLASS(NeighborsStateGetterTests)
 	{
 	private:
-		State state;
-		std::list<Cell> neighbors;
-
-		std::list<State> getNeighborsState()
+		std::list<State> getNeighborsState(std::list<Cell> neighbors)
 		{
 			std::list<State> neighborsStateList;
 			std::list<State>::const_iterator neighborsStateIterator;
@@ -25,37 +21,23 @@ namespace GameOfLife
 			return neighborsStateList;
 		}
 	public:
-		Cell(State state, std::list<Cell> neighbors) : state(state), neighbors(neighbors) {}
-		virtual ~Cell() {}
-
-		State getState() const
-		{
-			return state;
-		}
-	};
-
-	TEST_CLASS(NeighborsStateGetterTests)
-	{
-	private:
-		
-	public:
 		
 		TEST_METHOD(OneAliveNeighborsOnTheListBegin)
 		{
-			std::list<State> neighborsStateList;
-			neighborsStateList.push_back(State::ALIVE);
-			neighborsStateList.push_back(State::DEAD);
-			neighborsStateList.push_back(State::ALIVE);
-			Assert::AreEqual(State::ALIVE, (*neighborsStateList.begin()));
+			std::list<Cell> neighbors;
+			neighbors.push_back(Cell(State::ALIVE, std::list<Cell>()));
+			neighbors.push_back(Cell(State::DEAD, std::list<Cell>()));
+			neighbors.push_back(Cell(State::ALIVE, std::list<Cell>()));
+			Assert::AreEqual(State::ALIVE, (*getNeighborsState(neighbors).begin()));
 		}
 
 		TEST_METHOD(OneDeadNeighborsOnTheListBegin)
 		{
-			std::list<State> neighborsStateList;
-			neighborsStateList.push_back(State::DEAD);
-			neighborsStateList.push_back(State::ALIVE);
-			neighborsStateList.push_back(State::ALIVE);
-			Assert::AreEqual(State::DEAD, (*neighborsStateList.begin()));
+			std::list<Cell> neighbors;
+			neighbors.push_back(Cell(State::DEAD, std::list<Cell>()));
+			neighbors.push_back(Cell(State::DEAD, std::list<Cell>()));
+			neighbors.push_back(Cell(State::ALIVE, std::list<Cell>()));
+			Assert::AreEqual(State::DEAD, (*getNeighborsState(neighbors).begin()));
 		}
 	};
 }

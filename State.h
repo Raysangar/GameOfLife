@@ -1,3 +1,6 @@
+#ifndef STATE_H
+#define STATE_H
+
 #include "stdafx.h"
 
 enum State {
@@ -17,4 +20,8 @@ namespace Microsoft
         }
     }
 }
+
+#endif
+
+
 
