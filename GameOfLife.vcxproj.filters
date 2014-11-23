@@ -41,5 +41,8 @@
     <ClCompile Include="AliveNeighborsCountTests.cpp">
       <Filter>Archivos de código fuente</Filter>
     </ClCompile>
+    <ClCompile Include="NeighborsStateGetterTests.cpp">
+      <Filter>Archivos de código fuente</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
