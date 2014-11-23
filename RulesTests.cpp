@@ -10,6 +10,8 @@ namespace GameOfLife
 	{
 	private:
 		State getNextState(int aliveNeighbors) {
+			if (aliveNeighbors == 2)
+				return State::ALIVE;
 			return State::DEAD;
 		}
 	public:
