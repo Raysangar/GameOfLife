@@ -5,6 +5,8 @@ enum State {
 	ALIVE
 };
 
+
+//These method is necessary to overwrite when using a class or enum as comparable value on Asserts
 namespace Microsoft
 { 
     namespace VisualStudio

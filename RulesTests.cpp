@@ -10,11 +10,16 @@ namespace GameOfLife
 	{
 	public:
 		
-		TEST_METHOD(AliveCellDiesWithMoreThan3Neighbors)
+		TEST_METHOD(AliveCellDiesWithMoreThan3AliveNeighbors)
 		{
 			State state = State::DEAD; 
 			Assert::AreEqual(State::DEAD, state); 
 		}
 
+		TEST_METHOD(AliveCellDiesWithLessThan2AliveNeighbors)
+		{
+			State state = State::ALIVE; 
+			Assert::AreEqual(State::DEAD, state); 
+		}
 	};
 }
