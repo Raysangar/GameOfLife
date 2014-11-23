@@ -11,8 +11,17 @@ namespace GameOfLife
 	private:
 		State getNextState(State actualState, int aliveNeighbors) {
 			if (State::ALIVE == actualState)
+			{
 				if ((aliveNeighbors == 2) || (aliveNeighbors == 3))
 					return State::ALIVE;
+				else
+					return State::DEAD;
+			}
+			else
+			{
+				if (3 == aliveNeighbors)
+					return State::ALIVE;
+			}
 			return State::DEAD;
 		}
 	public:
@@ -42,7 +51,7 @@ namespace GameOfLife
 			Assert::AreEqual(State::DEAD, getNextState(State::DEAD, 2)); 
 		}
 
-		TEST_METHOD(DeadCellRebornsWith3AliveNeighbors)
+		TEST_METHOD(DeadCellResurrectWith3AliveNeighbors)
 		{
 			Assert::AreEqual(State::ALIVE, getNextState(State::DEAD, 3)); 
 		}
