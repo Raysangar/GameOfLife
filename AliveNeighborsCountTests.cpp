@@ -14,5 +14,11 @@ namespace GameOfLife
 			int aliveNeighbors = 3;
 			Assert::AreEqual(3, aliveNeighbors);
 		}
+
+		TEST_METHOD(TwoAliveNeighbors)
+		{
+			int aliveNeighbors = 3;
+			Assert::AreEqual(2, aliveNeighbors);
+		}
 	};
 }
