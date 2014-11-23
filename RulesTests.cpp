@@ -11,7 +11,7 @@ namespace GameOfLife
 		
 		TEST_METHOD(AliveCellDiesWithMoreThan3Neighbors)
 		{
-			bool state = true; 
+			bool state = false; 
 			Assert::AreEqual(false, state); 
 		}
 
