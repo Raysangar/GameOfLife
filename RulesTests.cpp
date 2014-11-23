@@ -5,13 +5,14 @@ using namespace Microsoft::VisualStudio::CppUnitTestFramework;
 
 namespace GameOfLife
 {		
-	TEST_CLASS(UnitTest1)
+	TEST_CLASS(RulesTests)
 	{
 	public:
 		
-		TEST_METHOD(TestMethod1)
+		TEST_METHOD(AliveCellDiesWithMoreThan3Neighbors)
 		{
-			// TODO: Agregar aquí el código de la prueba
+			bool state = true; 
+			Assert::AreEqual(false, state); 
 		}
 
 	};
