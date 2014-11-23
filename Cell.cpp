@@ -5,14 +5,8 @@
 
 class CellImplementation
 {
-public:
-	State state;
-	std::list<Cell> neighbors;
-
-	CellImplementation() : state(State::DEAD), neighbors(std::list<Cell>()) {}
-	CellImplementation(State state, std::list<Cell> neighbors) : state(state), neighbors(neighbors) {}
-
-	std::list<State> getNeighborsState()
+private:
+	std::list<State> getNeighborsState() const
 	{
 		std::list<State> neighborsStateList;
 		for (std::list<Cell>::const_iterator neighborsIterator = neighbors.begin(); neighborsIterator != neighbors.end(); ++neighborsIterator)
@@ -20,7 +14,17 @@ public:
 		return neighborsStateList;
 	}
 
-	int getAliveNeighbors() 
+public:
+	State state;
+	std::list<Cell> neighbors;
+
+	CellImplementation() : state(State::DEAD), neighbors(std::list<Cell>()) {}
+	
+	CellImplementation(State state, std::list<Cell> neighbors) : state(state), neighbors(neighbors) {}
+
+	virtual ~CellImplementation() {}
+
+	int getAliveNeighbors() const
 	{
 		std::list<State> neighborsStateList = getNeighborsState();
 		int aliveNeighbors = 0;
@@ -31,8 +35,14 @@ public:
 };
 
 Cell::Cell() : cellImpl(new CellImplementation) {}
+
 Cell::Cell(State state, std::list<Cell> neighbors) : cellImpl(new CellImplementation(state, neighbors)) {}
-Cell::~Cell() {}
+
+Cell::~Cell() 
+{
+	cellImpl = nullptr;
+	delete cellImpl;
+}
 
 State Cell::getState() const
 {

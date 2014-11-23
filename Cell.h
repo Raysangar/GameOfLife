@@ -9,7 +9,7 @@ class CellImplementation;
 class Cell
 {
 private:
-	CellImplementation* cellImpl;
+	CellImplementation *cellImpl;
 
 public:
 	Cell();
