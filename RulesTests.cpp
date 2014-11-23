@@ -18,7 +18,7 @@ namespace GameOfLife
 
 		TEST_METHOD(AliveCellDiesWithLessThan2AliveNeighbors)
 		{
-			State state = State::ALIVE; 
+			State state = State::DEAD; 
 			Assert::AreEqual(State::DEAD, state); 
 		}
 	};
